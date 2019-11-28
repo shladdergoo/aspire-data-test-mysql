@@ -8,3 +8,5 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN dpkg -i mysql-apt-config_0.8.14-1_all.deb
 RUN apt-get update
 RUN apt-get install -y mysql-shell
+
+COPY ./my.cnf /etc/mysql/my.cnf

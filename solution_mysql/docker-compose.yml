@@ -6,25 +6,25 @@ services:
     container_name: mysql-server
     environment: 
       - MYSQL_ROOT_PASSWORD=somereallysecretpassword
+    volumes:
+      - ../input_data/starter:/data
 
   mysql-client:
     image: aspire-mysql
     container_name: mysql-client
-    command: ["mysql", "-hmysql-server", "-uroot",  "-psomereallysecretpassword"]
+    command: ["mysql", "-hmysql-server", "-uroot", "-psomereallysecretpassword"]
     depends_on: 
       - mysql-server
     volumes:
       -  ./script:/script
-      - ../input_data/starter:/data
     working_dir: /script
 
   mysqlsh-client:
     image: aspire-mysql
     container_name: mysqlsh-client
-    command: ["mysqlsh", "-hmysql-server", "-uroot",  "-psomereallysecretpassword"]
+    command: ["mysqlsh", "-hmysql-server", "-uroot", "-psomereallysecretpassword"]
     depends_on: 
       - mysql-server
     volumes:
       -  ./script:/script
-      - ../input_data/starter:/data
     working_dir: /script
