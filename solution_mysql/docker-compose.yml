@@ -17,6 +17,7 @@ services:
       - mysql-server
     volumes:
       -  ./script:/script
+      - ../input_data/starter:/data
     working_dir: /script
 
   mysqlsh-client:
@@ -27,4 +28,5 @@ services:
       - mysql-server
     volumes:
       -  ./script:/script
+      - ../input_data/starter:/data
     working_dir: /script
