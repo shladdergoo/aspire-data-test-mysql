@@ -22,7 +22,7 @@ services:
   mysqlsh-client:
     image: aspire-mysql
     container_name: mysqlsh-client
-    command: ["mysqlsh", "-hmysql-server", "-uroot", "-psomereallysecretpassword"]
+    command: ["mysqlsh", "-hmysql-server", "-uroot", "-psomereallysecretpassword", "--py"]
     depends_on: 
       - mysql-server
     volumes:
